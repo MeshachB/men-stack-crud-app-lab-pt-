@@ -6,13 +6,22 @@ require('dotenv').config();
 
 
 
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => {
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
     console.log("Connected to MongoDB");
-  })
-  .catch((err) => {
-    console.log("MongoDB connection error:", err);
-  });
+  } catch (err){
+    console.log("MongoDB connection error");
+  }
+};
+connectDB();
+
+
+app.use(express.urlencoded({ extended: true }));
+const methodOverride = require('method-overide');
+app.use(methodOveride('_method'));
+
+
 
 
 // home test route 
