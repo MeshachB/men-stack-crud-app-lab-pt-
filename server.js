@@ -94,6 +94,16 @@ app.put('/quotes/:id', async (req, res) => {
   }
 });
 
+// DELETE ROUTE — Remove one quote
+app.delete('/quotes/:id', async (req, res) => {
+  try {
+    await Quote.findByIdAndDelete(req.params.id);
+    res.redirect('/quotes');
+  } catch (err) {
+    console.log(err);
+    res.send("Error deleting quote");
+  }
+});
 
 
 app.listen(3000, () => {
