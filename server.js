@@ -18,9 +18,10 @@ connectDB();
 
 
 app.use(express.urlencoded({ extended: true }));
-const methodOverride = require('method-overide');
-app.use(methodOveride('_method'));
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 
+const Quote = require('./models/Quotes');
 
 
 
