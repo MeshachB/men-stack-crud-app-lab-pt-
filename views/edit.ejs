@@ -1,0 +1,21 @@
+<h1>Edit Quote</h1>
+
+<form action="/quotes/<%= quote._id %>?_method=PUT" method="POST">
+
+  <label>Quote Text:</label><br>
+  <input type="text" name="text" value="<%= quote.text %>" required><br><br>
+
+  <label>Author:</label><br>
+  <input type="text" name="author" value="<%= quote.author %>" required><br><br>
+
+  <label>Year:</label><br>
+  <input type="number" name="year" value="<%= quote.year %>"><br><br>
+
+  <label>Location:</label><br>
+  <input type="text" name="location" value="<%= quote.location %>"><br><br>
+
+  <button type="submit">Save Changes</button>
+</form>
+
+<br>
+<a href="/quotes/<%= quote._id %>">Back to Quote Details</a>

@@ -72,6 +72,29 @@ app.get('/quotes/:id', async (req, res) => {
 });
 
 
+// EDIT ROUTE - Show form to edit a quote
+app.get('/quotes/:id/edit', async (req, res) => {
+  try {
+    const quote = await Quote.findById(req.params.id);
+    res.render('edit.ejs', { quote });
+  } catch (err) {
+    console.log(err);
+    res.send("Error loading edit form");
+  }
+});
+
+// UPDATE ROUTE - Save edited quote
+app.put('/quotes/:id', async (req, res) => {
+  try {
+    await Quote.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect('/quotes/' + req.params.id);
+  } catch (err) {
+    console.log(err);
+    res.send("Error updating quote");
+  }
+});
+
+
 
 app.listen(3000, () => {
     console.log("Server reunning on port 3000")
