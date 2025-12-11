@@ -3,9 +3,11 @@
 <ul>
   <% quotes.forEach((quote) => { %>
     <li>
-      "<%= quote.text %>" — <%= quote.author %>
-      <% if (quote.year) { %> (<%= quote.year %>) <% } %>
-      <% if (quote.location) { %> — <%= quote.location %> <% } %>
+      <a href="/quotes/<%= quote._id %>">
+        <%= quote.text %> — <%= quote.author %>
+        <% if (quote.year) { %> — <%= quote.year %> <% } %>
+        <% if (quote.location) { %> — <%= quote.location %> <% } %>
+      </a>
     </li>
   <% }) %>
 </ul>

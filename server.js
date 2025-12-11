@@ -60,6 +60,17 @@ app.post('/quotes', async (req, res) => {
   }
 });
 
+// SHOW ROUTE — Show details for one quote
+app.get('/quotes/:id', async (req, res) => {
+  try {
+    const quote = await Quote.findById(req.params.id);
+    res.render('show.ejs', { quote });
+  } catch (err) {
+    console.log(err);
+    res.send("Error loading quote");
+  }
+});
+
 
 
 app.listen(3000, () => {

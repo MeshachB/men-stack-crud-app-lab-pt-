@@ -1,0 +1,17 @@
+<h1>Quote Details</h1>
+
+<p><strong>Quote:</strong> <%= quote.text %></p>
+<p><strong>Author:</strong> <%= quote.author %></p>
+<p><strong>Year:</strong> <%= quote.year %></p>
+<p><strong>Location:</strong> <%= quote.location %></p>
+
+<br>
+
+<a href="/quotes">Back to All Quotes</a>
+<br><br>
+<a href="/quotes/<%= quote._id %>/edit">Edit Quote</a>
+<br><br>
+
+<form action="/quotes/<%= quote._id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete Quote</button>
+</form>
