@@ -1,0 +1,19 @@
+<h1>Add a New Quote</h1>
+
+<form action="/quotes" method="POST">
+  <label>Quote Text:</label><br>
+  <input type="text" name="text" required><br><br>
+
+  <label>Author:</label><br>
+  <input type="text" name="author" required><br><br>
+
+  <label>Year:</label><br>
+  <input type="number" name="year"><br><br>
+
+  <label>Location:</label><br>
+  <input type="text" name="location"><br><br>
+
+  <button type="submit">Create Quote</button>
+</form>
+
+<a href="/quotes">Back to All Quotes</a>

@@ -1,0 +1,13 @@
+<h1>All Quotes</h1>
+
+<ul>
+  <% quotes.forEach((quote) => { %>
+    <li>
+      "<%= quote.text %>" — <%= quote.author %>
+      <% if (quote.year) { %> (<%= quote.year %>) <% } %>
+      <% if (quote.location) { %> — <%= quote.location %> <% } %>
+    </li>
+  <% }) %>
+</ul>
+
+<a href="/quotes/new">Add a New Quote</a>
